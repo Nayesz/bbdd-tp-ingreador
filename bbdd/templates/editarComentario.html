@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BBDD</title>
+<meta charset="utf-8">
+{% endblock %}
+
+{% block body %}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Apodo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{com.id}}</td>
+                <td>{{com.titulo}}</td>
+                <td>{{com.descripcion}}</td>
+                <td>{{com.apodo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
