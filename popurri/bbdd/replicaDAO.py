@@ -2,6 +2,7 @@ from conexion import Conexion
 from replica import Replica
 
 class ReplicaDAO():
+    
     _INSERT = "INSERT INTO replica(detalle, apodo_replica, id_comentario) VALUES(%s, %s, %s)"
     _SELECT_BY_COMENTARIO = "SELECT * FROM replica WHERE id_comentario=%s ORDER BY id_replica"
     _SELECT_REPLICA = "SELECT * FROM replica WHERE id_replica=%s"

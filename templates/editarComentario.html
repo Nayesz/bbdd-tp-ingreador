@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <h1>Ingrese lo que quiere editar del comentario para el contenido nro: {{comentario.id_contenido}} </h1>
+    <form action="" method="POST">
+        <label for="apodo">Apodo:</label>
+        <input id="apodo" type="text" name="apodo" disabled=true value="{{comentario.apodo}}">
+        <label for="titulo">Titulo:</label>
+        <input id="titulo" type="text" name="titulo" value="{{comentario.titulo}}">
+        <label for="descripcion">Detalle:</label>
+        <input id="descripcion" type="text" name="descripcion" value="{{comentario.descripcion}}">
+        <input type="submit" value="Save">
+    </form>
+
+</body>
+</html>

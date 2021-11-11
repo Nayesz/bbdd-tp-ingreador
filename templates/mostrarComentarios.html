@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Descripción</th>
+                    <th>Apodo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in comentarios %}
+                <tr>
+                    <td>{{c.id}}</td>
+                    <td>{{c.titulo}}</td>
+                    <td>{{c.descripcion}}</td>
+                    <td>{{c.apodo}}</td>
+                    <td><a href="/contenido/3/comentarios/{{c.id}}/replicas">VeR RePLICaS</a></td>
+                    <td><a href="/{{c.id}}/borrarComentario">aca va el tachitop</a></td>
+                    <td><a href="/{{c.id}}/editarComentario">aca va el lapicito</a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
