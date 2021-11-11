@@ -13,22 +13,17 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Titulo</th>
                     <th>Descripción</th>
                     <th>Apodo</th>
                 </tr>
             </thead>
             <tbody>
-                {% for c in comentarios %}
+                {% for c in replicas %}
                 <tr>
                     <td>{{c.id}}</td>
-                    <td>{{c.titulo}}</td>
                     <td>{{c.descripcion}}</td>
                     <td>{{c.apodo}}</td>
-                    <td><a href="/{{c.id_contenido}}/obtenerComentario/{{c.id}}/replicas">VeR RePLICaS</a></td>
-                    <td><a href="/{{c.id}}/borrarComentario">aca va el tachitop</a></td>
-                    <td><a href="/{{c.id}}/editarComentario">aca va el lapicito</a></td>
-
+                    
                 </tr>
                 {% endfor %}
             </tbody>
