@@ -26,6 +26,8 @@ class Comentario(db.Model):
 
 with app.app_context():
     db.create_all()
+    db.session.commit()
+
 
 @app.route("/<int:id_contenido>/nuevoComentario",methods=['GET','POST'])
 def comentario(id_contenido):
