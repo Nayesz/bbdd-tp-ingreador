@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    {% block head %}{% endblock %}
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+        <div class="container">
+          <h1>Contenidos-App</h1>
+        </div>
+      </header>
     <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Descripción</th>
-                    <th>Apodo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for c in comentarios %}
-                <tr>
-                    <td>{{c.id}}</td>
-                    <td>{{c.titulo}}</td>
-                    <td>{{c.descripcion}}</td>
-                    <td>{{c.apodo}}</td>
-                    <td><a href="/{{c.id_contenido}}/obtenerComentario/{{c.id}}/replicas">VeR RePLICaS</a></td>
-                    <td><a href="/{{c.id}}/borrarComentario">aca va el tachitop</a></td>
-                    <td><a href="/{{c.id}}/editarComentario">aca va el lapicito</a></td>
-
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Apodo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in comentarios %}
+          <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.titulo}}</td>
+            <td>{{c.descripcion}}</td>
+            <td>{{c.apodo}}</td>
+            <td>
+              <a href="/{{c.id_contenido}}/obtenerComentario/{{c.id}}/replicas"
+                ><i class="bi bi-reply-all-fill"></i
+              ></a>
+            </td>
+            <td>
+              <a href="/{{c.id}}/borrarComentario"
+                ><i class="bi bi-trash-fill"></i
+              ></a>
+            </td>
+            <td>
+              <a href="/{{c.id}}/editarComentario"
+                ><i class="bi bi-pencil-fill"></i
+              ></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
+    <a href="/" class="btn btn-primary">Volver</a>
+    <div><a href="/{{id}}/nuevoComentario"><i class="bi bi-plus-circle-fill" style="font-size: 2.5rem;"></i></a></div>
     
-</body>
+  </body>
 </html>

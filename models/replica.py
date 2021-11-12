@@ -22,4 +22,4 @@ class Replica(db.Model):
         self.id_comentario = id_comentario
     
     def __repr__(self) -> str:
-        return f'Id:{self.id} // Replica:{self.descripcion}'
+        return f'Id:{self.id} // Replica:{self.descripcion} // {self.rel}'

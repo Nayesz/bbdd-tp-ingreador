@@ -32,7 +32,7 @@ def editarComentario(id_comentario):
         db.session.add(_comentario)
         db.session.commit()
         return redirect(url_for('obtenerComentario', _id_contenido = _comentario.id_contenido))
-    return render_template('editarComentario.html',comentario=_comentario)
+    return render_template('editarComentario.html',comentario=_comentario, id = _comentario.id_contenido)
 
 @app.route("/<int:id_contenido>/nuevoComentario",methods=['GET','POST'])
 def comentario(id_contenido):
@@ -43,13 +43,14 @@ def comentario(id_contenido):
         newComment = Comentario(apodo,titulo,detalle,id_contenido)  
         db.session.add(newComment)
         db.session.commit()
-    return render_template('nuevoComentario.html',id_contenido=id_contenido)
+        return redirect(url_for('obtenerComentario', _id_contenido = id_contenido))
+    return render_template('nuevoComentario.html',id_contenido=id_contenido, id = id_contenido)
 
 @app.route("/<int:_id_contenido>/obtenerComentario",methods=['GET'])
 def obtenerComentario(_id_contenido):
     comentarios= Comentario.query.filter_by(id_contenido=_id_contenido)
     print(comentarios)
-    return render_template('mostrarComentarios.html',comentarios=comentarios)
+    return render_template('mostrarComentarios.html',comentarios=comentarios, id = _id_contenido)
 
 @app.route("/<int:_id_contenido>/obtenerComentario/<int:_id_comentario>/replicas",methods=['GET'])
 def obtenerReplicas(_id_contenido, _id_comentario):
@@ -59,10 +60,12 @@ def obtenerReplicas(_id_contenido, _id_comentario):
 
 @app.route("/<int:_id_contenido>/obtenerComentario/<int:_id_comentario>/replicas/<int:_id_replica>",methods=['GET'])
 def obtenerReplicasDeReplicas(_id_contenido, _id_comentario, _id_replica):
-    replicas = db.session.execute(f"""SELECT t.apodo,t.descripcion,t.id_comentario,t.id
-                    FROM replica as t , tiene as x
-                    WHERE t.id = x.id_replica_siguiente AND x.id_replica_actual={_id_replica} """)
-    return render_template('replicasDeReplicas.html', replicas=replicas)
+    # replicas = db.session.execute(f"""SELECT t.apodo,t.descripcion,t.id_comentario,t.id
+    #                 FROM replica as t , tiene as x
+    #                 WHERE t.id = x.id_replica_siguiente AND x.id_replica_actual={_id_replica} """)
+    replicas = Replica.query.filter_by(id=_id_replica).first()
+    return render_template('replicasDeReplicas.html', replicas=replicas.rel, id_comentario=_id_comentario, id_contenido = _id_contenido)
+
 
 #genera replicas :)
 def func(_id_comentario):
