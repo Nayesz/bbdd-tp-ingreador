@@ -52,10 +52,11 @@ def obtenerComentario(_id_contenido):
     print(comentarios)
     return render_template('mostrarComentarios.html',comentarios=comentarios, id = _id_contenido)
 
+#las replicas de las replicas se distinguen con id_comentairio=0
 @app.route("/<int:_id_contenido>/obtenerComentario/<int:_id_comentario>/replicas",methods=['GET'])
 def obtenerReplicas(_id_contenido, _id_comentario):
     replicas= Replica.query.filter_by(id_comentario=_id_comentario)
-    # func(_id_comentario) 
+    #func(_id_comentario) 
     return render_template('replicas.html',replicas=replicas, id_contenido=_id_contenido)
 
 @app.route("/<int:_id_contenido>/obtenerComentario/<int:_id_comentario>/replicas/<int:_id_replica>",methods=['GET'])
@@ -70,6 +71,6 @@ def obtenerReplicasDeReplicas(_id_contenido, _id_comentario, _id_replica):
 #genera replicas :)
 def func(_id_comentario):
     for i in range(10):
-        replica = Replica(apodo= f"apo{i}", descripcion = ("a"*i), id_comentario=_id_comentario)
+        replica = Replica(apodo= f"apo{i}", descripcion = ("a"*i), id_comentario=0)
         db.session.add(replica)
         db.session.commit()

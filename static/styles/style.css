@@ -2,5 +2,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
+}
+
+.div-btn{
+
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+label{
+    margin-top: 2rem;
+}
+
+.logo-bygonza{
+    font-size: 10rem;
+    font-family: 'Merienda One', cursive;
 }
