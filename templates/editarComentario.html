@@ -20,54 +20,36 @@
 <body>
   <div class="div-flex">
     <header>
-      <div class="container logo-bygonza">
-        <h1>Contenidos-App</h1>
+      <div class="container">
+        <h1><a href="/" class="header-font">Contenidos-App</a></h1>
       </div>
     </header>
-    <div class=" card div-flex" style="width: 100%;">
-      <div class="container div-flex card-header ">
-        <div class="card-title">Ingrese su nuevo comentario</div>
-        <div class="card-title">para el contenido nro: {{id_contenido}} </div>
+    <div class="card div-flex" style="width: 100%;">
+      <div class="card-header div-flex ">
+        <div class="card-title">Actualice el comentario nro: {{comentario.id}}</div>
       </div>
-      <form action="" method="POST"style="width: 100%;">
-        <div>
-          <div class="mb-3  div-flex">
-            <div>
+      <form action="" method="POST" style="width: 100%">
 
-              <label class="form-label" for="apodo">Apodo:</label>
-            </div>
-            <div>
-              <input id="apodo" type="text" name="apodo" disabled=true value="{{comentario.apodo}}">
-            </div>
+          <div class="mb-3  div-flex card-text">
+            <label class="form-label" for="apodo"><em>Apodo:</em></label>
+            <input id="apodo" type="text" name="apodo" disabled="true" value="{{comentario.apodo}}">
           </div>
-          <div class="mb-3  div-flex">
-            <div>
-
-              <label class="form-label" for="titulo">Titulo:</label>
-            </div>
-            <div>
+          
+          <div class="mb-3  div-flex card-text">
+              <label class="form-label" for="titulo"><em>Titulo:</em></label>
               <input id="titulo" type="text-area" name="titulo" value="{{comentario.titulo}}">
-            </div>
           </div>
 
-            <div class="mb-3  div-flex">
-              <div>
-                <label class="form-label" for="detalle">Detalle:</label>
-              </div>
-              <div>
-                <textarea id="detalle" rows="4" cols="23"  name="detalle" value="{{comentario.descripcion}}"></textarea>
-              </div>
+            <div class="mb-3  div-flex card-text">
+              <label class="form-label" for="descripcion"><em>Descripción:</em></label>
+              <textarea id="descripcion" rows="4" cols="45"  name="descripcion">{{comentario.descripcion}}</textarea>
             </div>
 
+          <div class="mb-3 div-btn card-footer" >
+              <button class="btn btn-primary" type="submit" >Guardar</button>
+              <a href="/{{comentario.id_contenido}}/obtenerComentario" class="btn btn-primary whited" >Volver</a>
           </div>
 
-          <div>
-            <div class="mb-3 div-btn  div-flex" >
-              <button class="btn btn-primary" type="submit" class="btn btn-primary">Submit</button>
-              <a href="/{{id}}/obtenerComentario" class="btn btn-primary">Volver</a>
-            </div>
-          </div>
-        </div>
       </form>
     </div>
   </div>

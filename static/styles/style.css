@@ -1,13 +1,49 @@
+*{
+    font-size: 30px;
+}
+
 .div-flex{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
+.card-header{
+    width: 770px!important;
+}
+
+.whited{
+    color:white!important
+}
+
+a{
+    text-decoration:none!important; 
+    color: black!important;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    font-family: 'Merienda One', cursive;
+}
+
+.header-font{
+    font-size: 65px;
+}
+
+em{
+    font-size: 1.3em
 }
 
 .div-btn{
-
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -18,7 +54,8 @@ label{
     margin-top: 2rem;
 }
 
-.logo-bygonza{
-    font-size: 10rem;
-    font-family: 'Merienda One', cursive;
+input{
+    width:653px;
+    height: 35px;
 }
+
