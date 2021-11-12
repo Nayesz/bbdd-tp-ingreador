@@ -5,8 +5,6 @@ tiene = db.Table('tiene', db.metadata,
         db.Column('id_replica_actual', db.Integer, db.ForeignKey('replica.id'), primary_key=True),
         db.Column('id_replica_siguiente', db.Integer, db.ForeignKey('replica.id'), primary_key=True))
 
-
-
 class Replica(db.Model):
     __tablename__='replica'
     __table_args__ = {'mysql_engine':'InnoDB','mysql_charset':'utf8','mysql_collate':'utf8_general_ci'}

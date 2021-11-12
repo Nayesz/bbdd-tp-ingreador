@@ -11,6 +11,10 @@ with app.app_context():
     db.create_all()
     db.session.commit()
 
+@app.route("/",methods=['GET'])
+def home():
+    return render_template("home.html")
+
 @app.route("/<int:id_comentario>/borrarComentario",methods=['GET','DELETE'])
 def borrarComentario(id_comentario):
     comentario= Comentario.query.filter_by(id=id_comentario).first()
