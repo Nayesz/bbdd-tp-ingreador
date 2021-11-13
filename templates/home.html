@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="container">
-            <h1><a href="/" class="header-font">Contenidos-App</a></h1>
+            <h1><a href="/contenido" class="header-font">Contenidos-App</a></h1>
         </div>    
     </header> 
         <table class="table table-striped table-bordered text-center">
@@ -37,7 +37,7 @@
                     <td>{{i}}</td>
                     <td>Descripcion {{i}}</td>
                     <td>Apodo {{i}}</td>
-                    <td><a href="/{{i}}/obtenerComentario"><i class="bi bi-pencil-fill"></i></a></td>
+                    <td><a href="/contenido/{{i}}/comentario"><i class="bi bi-pencil-fill"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

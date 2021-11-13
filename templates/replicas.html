@@ -18,9 +18,9 @@
 <body>
   <header>
     <div class="container text-center">
-      <h1><a href="/" class="header-font">Contenidos-App</a></h1>
+      <h1><a href="/contenido" class="header-font">Contenidos-App</a></h1>
       <div>
-        <h3>Réplicas del comentario titulado: {{comentario}}</h3>
+        <h3>Réplicas del comentario titulado: {{comentario.titulo}}</h3>
     </div>
     </div>
   </header>
@@ -39,12 +39,12 @@
                     <td>{{c.id}}</td>
                     <td>{{c.descripcion}}</td>
                     <td>{{c.apodo}}</td>
-                    <td><a href="/{{id_contenido}}/obtenerComentario/{{c.id_comentario}}/replicas/{{c.id}}"><i class="bi bi-reply-all-fill"></i></a></td>
+                    <td><a href="/contenido/{{id_contenido}}/comentario/{{comentario.id}}/replica/{{c.id}}"><i class="bi bi-reply-all-fill"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <a href="/{{id_contenido}}/obtenerComentario" class="btn btn-primary whited" style="margin: 50px">Volver</a>
+    <a href="/contenido/{{id_contenido}}/comentario" class="btn btn-primary whited" style="margin: 50px">Volver</a>
 </body>
 </html>

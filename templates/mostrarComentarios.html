@@ -18,7 +18,7 @@
   <body>
     <header>
         <div class="container text-center">
-          <h1><a href="/" class="header-font">Contenidos-App</a></h1>
+          <h1><a href="/contenido" class="header-font">Contenidos-App</a></h1>
           <div>
             <h3>Comentarios del contenido nro: {{id}}</h3>
         </div>
@@ -42,17 +42,17 @@
             <td>{{c.descripcion}}</td>
             <td>{{c.apodo}}</td>
             <td>
-              <a href="/{{c.id_contenido}}/obtenerComentario/{{c.id}}/replicas"
+              <a href="/contenido/{{c.id_contenido}}/comentario/{{c.id}}/replica"
                 ><i class="bi bi-reply-all-fill"></i
               ></a>
             </td>
             <td>
-              <a href="/{{c.id}}/borrarComentario"
+              <a href="/contenido/{{c.id_contenido}}/comentario/{{c.id}}/delete"
                 ><i class="bi bi-trash-fill"></i
               ></a>
             </td>
             <td>
-              <a href="/{{c.id}}/editarComentario"
+              <a href="/contenido/{{c.id_contenido}}/comentario/{{c.id}}/update"
                 ><i class="bi bi-pencil-fill"></i
               ></a>
             </td>
@@ -64,7 +64,7 @@
     
     <div class="div-btn">
       <a href="/" class="btn btn-primary whited">Volver</a>
-      <a href="/{{id}}/nuevoComentario"><i class="bi bi-plus-circle-fill " style="font-size: 2.5rem;color:#0d6efd"></i></a>
+      <a href="/contenido/{{id}}/comentario/create"><i class="bi bi-plus-circle-fill " style="font-size: 2.5rem;color:#0d6efd"></i></a>
     </div>
   </body>
 </html>
