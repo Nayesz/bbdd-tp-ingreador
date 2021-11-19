@@ -11,7 +11,7 @@ class Replica(db.Model):
 
     id = db.Column(db.Integer,primary_key=True)
     apodo = db.Column(db.String(20))
-    descripcion = db.Column(db.String(50))
+    descripcion = db.Column(db.String(150))
     id_comentario = db.Column(db.Integer)
     rel = db.relationship('Replica', secondary=tiene, primaryjoin=tiene.c.id_replica_actual==id,
                     secondaryjoin=tiene.c.id_replica_siguiente==id)

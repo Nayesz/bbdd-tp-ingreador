@@ -6,8 +6,8 @@ class Comentario(db.Model):
 
     id = db.Column(db.Integer,primary_key=True)
     apodo = db.Column(db.String(20))
-    titulo =db.Column(db.String(20))
-    descripcion = db.Column(db.String(50))
+    titulo =db.Column(db.String(50))
+    descripcion = db.Column(db.String(150))
     id_contenido = db.Column(db.Integer)
 
     def __init__(self,apodo,titulo,descripcion,id_contenido) -> None:

@@ -35,6 +35,10 @@ a{
     font-family: 'Merienda One', cursive;
 }
 
+td{
+    vertical-align: middle;
+}
+
 .header-font{
     font-size: 65px;
 }
