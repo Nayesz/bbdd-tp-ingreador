@@ -18,15 +18,14 @@ def routeador():
 
 @app.route("/contenido",methods=['GET'])
 def home():
+    func()
     return render_template("home.html")
-
 
 @app.route("/contenido/<int:_id_contenido>/comentario/",methods=['GET'])
 def obtenerComentario(_id_contenido):
     comentarios= Comentario.query.filter_by(id_contenido=_id_contenido)
-    print(comentarios)
+    #print(comentarios)
     return render_template('mostrarComentarios.html',comentarios=comentarios, id = _id_contenido)
-
 
 @app.route("/contenido/<int:_id_contenido>/comentario/<int:id_comentario>/delete",methods=['GET','DELETE'])
 def borrarComentario(_id_contenido, id_comentario):
@@ -80,7 +79,11 @@ def obtenerReplicasDeReplicas(_id_contenido, id_comentario, id_replica):
 
 #genera replicas :)
 def func():
-    for i in range(10):
-        replica = Replica(apodo= f"apo{i}", descripcion = ("a"*i), id_comentario=0)
-        db.session.add(replica)
-        db.session.commit()
+    replica1 = Replica(apodo= f"Gonza", descripcion = ("Soy una replica de replica"), id_comentario=0)
+    replica2 = Replica(apodo= f"Rodo", descripcion = ("Soy una replica de replica"), id_comentario=0)
+    replica3= Replica(apodo= f"Juli", descripcion = ("Soy una replica de replica"), id_comentario=0)
+    db.session.add(replica1)
+    db.session.add(replica2)
+    db.session.add(replica3)
+
+    db.session.commit()
